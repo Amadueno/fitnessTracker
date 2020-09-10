@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { Exercise} = require('../models')
+const { Workout} = require('../models')
 
 // GET all workouts
 router.get('/workouts', (req, res) => {
@@ -11,7 +11,7 @@ router.get('/workouts', (req, res) => {
 
 // POST one workout
 router.post('/workouts', (req, res) => {
-  Exercise.create(req.body)
+  Workout.create(req.body)
     
         .then(workout => res.json(workout))
         .catch(err => console.log(err))
@@ -28,7 +28,7 @@ router.put('/workouts/:id', (req, res) => {
 
 // DELETE one exercise
 router.delete('/workouts/:id', (req, res) => {
-  Exercise.findByIdAndDelete(req.params.id)
+  Workout.findByIdAndDelete(req.params.id)
     .then(() => res.sendStatus(200))
     .catch(err => console.log(err))
 })
